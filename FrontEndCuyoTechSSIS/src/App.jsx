@@ -4,6 +4,7 @@ import LandingPage from "./Pages/LandingPage.jsx";
 import NotFoundPage from "./Pages/NotFoundPage.jsx";
 
 import StudentDashboard from "./Pages/Student/StudentDashboard.jsx";
+import DocumentRequest from "./Pages/Student/DocumentRequest.jsx";
 
 import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 
@@ -19,6 +20,10 @@ function App() {
             <Route
                 path="/student/dashboard"
                 element={<StudentDashboard />}
+            />
+            <Route
+                path="/student/document-request"
+                element={<DocumentRequest />}
             />
 
             {/* Admin pages */}

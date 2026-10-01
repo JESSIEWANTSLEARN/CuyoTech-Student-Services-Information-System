@@ -13,11 +13,6 @@
 .welcome-panel h1 { font-size: clamp(2.1rem, 4vw, 3.5rem); line-height: 1.1; margin: .5rem 0 1rem; }
 .welcome-panel > p:last-child { color: #4c5970; line-height: 1.6; max-width: 38rem; }
 .auth-panel { background: #fff; border: 1px solid #dce4ec; border-radius: 18px; padding: 1.5rem; box-shadow: 0 12px 36px #17203312; }
-.auth-options { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-.auth-option { background: #edf4f6; color: #19515d; border: 2px solid transparent; border-radius: 10px; padding: .9rem; cursor: pointer; font-weight: 700; }
-.auth-option:hover, .auth-option:focus-visible { border-color: #137487; }
-.auth-option.active { background: #146a77; color: #fff; }
-.auth-prompt { color: #4c5970; text-align: center; padding: 1.5rem 0 .25rem; }
 .auth-form { display: grid; gap: .55rem; margin-top: 1.5rem; }
 .auth-form h2 { margin: 0; }
 .form-note { color: #59667b; font-size: .9rem; line-height: 1.5; margin: .15rem 0 .75rem; }
@@ -32,3 +27,27 @@
 }
 
 .placeholder-page { max-width: 760px; margin: 3rem auto; padding: 0 1.5rem; }
+
+.site-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: #146a77; color: #fff; }
+.brand-link { color: #fff; font-weight: 700; text-decoration: none; }
+.dashboard-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: calc(100vh - 56px); }
+.student-sidebar { display: flex; flex-direction: column; gap: .5rem; padding: 1.5rem; background: #e9f2f4; }
+.student-sidebar a { padding: .8rem; border-radius: 8px; color: #19515d; text-decoration: none; }
+.student-sidebar a.active { background: #146a77; color: #fff; font-weight: 700; }
+.dashboard-content { width: 100%; max-width: 1080px; padding: 2rem clamp(1.25rem, 4vw, 3rem); }
+.dashboard-content h1 { margin: .4rem 0 1rem; }
+.dashboard-content > p { line-height: 1.55; }
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.dashboard-card, .request-form { padding: 1.5rem; border: 1px solid #dce4ec; border-radius: 12px; background: #fff; }
+.dashboard-card h2 { margin-top: 0; font-size: 1.15rem; }
+.dashboard-card p { color: #59667b; line-height: 1.5; }
+.action-link, .back-link { display: inline-block; color: #146a77; font-weight: 700; }
+.request-form { display: grid; gap: .7rem; max-width: 650px; margin: 2rem 0 1.5rem; }
+.request-form label { font-weight: 600; }
+.request-form select, .request-form textarea { width: 100%; padding: .8rem; border: 1px solid #aab8c8; border-radius: 8px; font: inherit; }
+.request-form select:focus-visible, .request-form textarea:focus-visible { outline: 2px solid #146a77; outline-offset: 2px; }
+
+@media (max-width: 740px) {
+    .dashboard-layout { grid-template-columns: 1fr; }
+    .student-sidebar { flex-direction: row; flex-wrap: wrap; padding: .75rem 1.25rem; }
+}

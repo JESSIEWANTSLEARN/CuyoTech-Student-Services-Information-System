@@ -7,7 +7,7 @@ function LogInForm() {
     return (
         <form className="auth-form" onSubmit={handleSubmit}>
             <h2>Log in to your account</h2>
-            <p className="form-note">Use the account provided by your university.</p>
+            <p className="form-note">Use the account created after your enrollment.</p>
 
             <label htmlFor="login-email">Email address</label>
             <input id="login-email" name="email" type="email" autoComplete="email" required />
