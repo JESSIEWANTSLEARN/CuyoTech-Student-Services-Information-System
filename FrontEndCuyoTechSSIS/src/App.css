@@ -1,5 +1,5 @@
 .landing-page {
-    min-height: 100vh;
+    min-height: calc(100vh - 50px);
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
     align-items: center;
@@ -30,6 +30,7 @@
 
 .site-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: #146a77; color: #fff; }
 .brand-link { color: #fff; font-weight: 700; text-decoration: none; }
+.site-footer { padding: 1rem 1.5rem; text-align: center; background: #e9f2f4; color: #40576a; }
 .dashboard-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: calc(100vh - 56px); }
 .student-sidebar { display: flex; flex-direction: column; gap: .5rem; padding: 1.5rem; background: #e9f2f4; }
 .student-sidebar a { padding: .8rem; border-radius: 8px; color: #19515d; text-decoration: none; }
@@ -46,6 +47,8 @@
 .request-form label { font-weight: 600; }
 .request-form select, .request-form textarea { width: 100%; padding: .8rem; border: 1px solid #aab8c8; border-radius: 8px; font: inherit; }
 .request-form select:focus-visible, .request-form textarea:focus-visible { outline: 2px solid #146a77; outline-offset: 2px; }
+.module-dashboard { min-height: calc(100vh - 108px); margin: 0 auto; }
+.module-note { margin-top: 2rem; color: #59667b; }
 
 @media (max-width: 740px) {
     .dashboard-layout { grid-template-columns: 1fr; }

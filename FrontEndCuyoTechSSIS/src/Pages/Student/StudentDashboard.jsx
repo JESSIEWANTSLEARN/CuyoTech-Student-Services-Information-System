@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import Header from "../../Components/Header.jsx";
 import SideBar from "../../Components/SideBar.jsx";
+import Footer from "../../Components/Footer.jsx";
+import StudentProfile from "../../Components/Student/StudentProfile.jsx";
+import StudentSubjects from "../../Components/Student/StudentSubjects.jsx";
+import StudentGrades from "../../Components/Student/StudentGrades.jsx";
 
 function StudentDashboard() {
     return (
@@ -16,14 +20,9 @@ function StudentDashboard() {
                     </p>
 
                     <div className="dashboard-grid">
-                        <section className="dashboard-card">
-                            <h2>Profile</h2>
-                            <p>Your student profile will appear here when connected to the university records.</p>
-                        </section>
-                        <section className="dashboard-card">
-                            <h2>Subjects and grades</h2>
-                            <p>Your enrolled subjects and released grades will appear here.</p>
-                        </section>
+                        <StudentProfile />
+                        <StudentSubjects />
+                        <StudentGrades />
                         <section className="dashboard-card">
                             <h2>Document requests</h2>
                             <p>Submit a request for a TOR, COR, or certification.</p>
@@ -34,6 +33,7 @@ function StudentDashboard() {
                     </div>
                 </main>
             </div>
+            <Footer />
         </>
     );
 }

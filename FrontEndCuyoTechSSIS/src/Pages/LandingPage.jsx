@@ -1,7 +1,9 @@
 import LogInForm from "../Components/LogInForm.jsx";
+import Footer from "../Components/Footer.jsx";
 
 function LandingPage() {
     return (
+        <>
         <main className="landing-page">
             <section className="welcome-panel" aria-labelledby="welcome-title">
                 <p className="eyebrow">CuyoTech University</p>
@@ -16,6 +18,8 @@ function LandingPage() {
                 <LogInForm />
             </section>
         </main>
+        <Footer />
+        </>
     );
 }
 

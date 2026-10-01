@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../../Components/Header.jsx";
 import SideBar from "../../Components/SideBar.jsx";
+import Footer from "../../Components/Footer.jsx";
 
 function DocumentRequest() {
     return (
@@ -48,6 +49,7 @@ function DocumentRequest() {
                     </Link>
                 </main>
             </div>
+            <Footer />
         </>
     );
 }

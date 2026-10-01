@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import Nav from "./Nav.jsx";
 
-function Header() {
+function Header({ section = "Student Services" }) {
     return (
         <header className="site-header">
-            <Link to="/" className="brand-link">CuyoTech SSIS</Link>
-            <span>Student Services</span>
+            <Nav />
+            <span>{section}</span>
         </header>
     );
 }
