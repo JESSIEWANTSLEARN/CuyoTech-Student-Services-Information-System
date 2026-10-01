@@ -1,29 +1,19 @@
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import { Link } from "react-router-dom";
+import StaffPage from "./StaffPage.jsx";
 
-function ModuleDashboard({ title, description, areas }) {
+function ModuleDashboard({ role, title, description, areas }) {
     return (
-        <>
-            <Header section={title} />
-            <main className="dashboard-content module-dashboard">
-                <p className="eyebrow">Staff module</p>
-                <h1>{title}</h1>
-                <p>{description}</p>
-
+        <StaffPage role={role} title={title} description={description}>
                 <div className="dashboard-grid">
                     {areas.map((area) => (
                         <section className="dashboard-card" key={area.title}>
                             <h2>{area.title}</h2>
                             <p>{area.description}</p>
+                            <Link to={area.path} className="action-link">View {area.title.toLowerCase()}</Link>
                         </section>
                     ))}
                 </div>
-                <p className="module-note">
-                    This interface is awaiting authenticated access and backend integration.
-                </p>
-            </main>
-            <Footer />
-        </>
+        </StaffPage>
     );
 }
 

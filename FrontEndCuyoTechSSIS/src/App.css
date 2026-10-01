@@ -49,6 +49,17 @@
 .request-form select:focus-visible, .request-form textarea:focus-visible { outline: 2px solid #146a77; outline-offset: 2px; }
 .module-dashboard { min-height: calc(100vh - 108px); margin: 0 auto; }
 .module-note { margin-top: 2rem; color: #59667b; }
+.module-nav { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1.5rem 0; }
+.module-nav a { padding: .6rem .85rem; border-radius: 8px; background: #e9f2f4; color: #19515d; font-weight: 600; text-decoration: none; }
+.module-nav a:hover, .module-nav a:focus-visible { background: #d2e7eb; }
+.record-panel { margin: 2rem 0; padding: 1.5rem; border: 1px solid #dce4ec; border-radius: 12px; background: #fff; }
+.record-panel h2 { margin-top: 0; }
+.record-panel > p { color: #59667b; line-height: 1.5; }
+.table-scroll { overflow-x: auto; }
+.record-panel table { width: 100%; border-collapse: collapse; text-align: left; }
+.record-panel th, .record-panel td { padding: .85rem; border-bottom: 1px solid #dce4ec; }
+.record-panel th { background: #f4f8fa; white-space: nowrap; }
+.record-panel .empty-cell { color: #59667b; text-align: center; padding: 2rem 1rem; }
 
 @media (max-width: 740px) {
     .dashboard-layout { grid-template-columns: 1fr; }

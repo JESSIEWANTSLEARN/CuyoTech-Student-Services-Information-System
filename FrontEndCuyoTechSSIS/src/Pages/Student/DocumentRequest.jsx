@@ -47,6 +47,10 @@ function DocumentRequest() {
                     <Link to="/student/dashboard" className="back-link">
                         Back to dashboard
                     </Link>
+                    {" · "}
+                    <Link to="/student/requests" className="back-link">
+                        View request status
+                    </Link>
                 </main>
             </div>
             <Footer />
