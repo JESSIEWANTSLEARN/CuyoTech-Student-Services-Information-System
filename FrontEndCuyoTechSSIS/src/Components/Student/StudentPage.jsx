@@ -4,7 +4,7 @@ import Footer from "../Footer.jsx";
 
 function StudentPage({ title, description, children }) {
     return (
-        <>
+        <div>
             <Header section={title} />
             <div className="dashboard-layout">
                 <SideBar />
@@ -16,7 +16,7 @@ function StudentPage({ title, description, children }) {
                 </main>
             </div>
             <Footer />
-        </>
+        </div>
     );
 }
 

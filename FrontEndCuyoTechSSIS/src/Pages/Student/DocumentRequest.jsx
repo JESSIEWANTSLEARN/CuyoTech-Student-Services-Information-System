@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer.jsx";
 
 function DocumentRequest() {
     return (
-        <>
+        <div>
             <Header />
             <div className="dashboard-layout">
                 <SideBar />
@@ -54,7 +54,7 @@ function DocumentRequest() {
                 </main>
             </div>
             <Footer />
-        </>
+        </div>
     );
 }
 

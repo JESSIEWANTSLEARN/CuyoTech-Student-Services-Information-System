@@ -26,7 +26,7 @@ const sections = {
 
 function StaffPage({ role, title, description, children }) {
     return (
-        <>
+        <div>
             <Header section={title} />
             <main className="dashboard-content module-dashboard">
                 <p className="eyebrow">{role} module</p>
@@ -41,7 +41,7 @@ function StaffPage({ role, title, description, children }) {
                 <p className="module-note">Records and actions require authenticated access and backend integration.</p>
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 

@@ -8,7 +8,7 @@ import StudentGrades from "../../Components/Student/StudentGrades.jsx";
 
 function StudentDashboard() {
     return (
-        <>
+        <div>
             <Header />
             <div className="dashboard-layout">
                 <SideBar />
@@ -34,7 +34,7 @@ function StudentDashboard() {
                 </main>
             </div>
             <Footer />
-        </>
+        </div>
     );
 }
 
