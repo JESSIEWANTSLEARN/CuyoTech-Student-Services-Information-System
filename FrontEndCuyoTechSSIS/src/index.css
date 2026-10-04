@@ -1,52 +1,41 @@
 @import "tailwindcss";
 
-@theme inline {
-    --color-accent: var(--accent);
-    --color-accent-ink: var(--accent-ink);
-    --color-ink: var(--ink);
-    --color-muted: var(--muted);
-    --color-surface: var(--surface);
-    --color-panel: var(--panel);
-    --color-sidebar: var(--sidebar);
-    --color-line: var(--line);
-    --color-field: var(--field);
-    --color-field-ink: var(--field-ink);
-}
-
 :root {
     font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color-scheme: dark;
-    --accent: #69df0b;
-    --accent-ink: #142106;
-    --ink: #f3f5f1;
-    --muted: #bec5ba;
-    --surface: #272a29;
-    --panel: #333735;
-    --sidebar: #282b29;
-    --line: #515a50;
-    --field: #f8f8f5;
-    --field-ink: #222823;
-    --dot: #657163;
-    --glow: rgba(95, 218, 20, .2);
-}
-
-:root[data-theme="light"] {
     color-scheme: light;
-    --accent: #3f8c00;
-    --accent-ink: #fff;
-    --ink: #18211b;
-    --muted: #485649;
-    --surface: #eef3e9;
-    --panel: #fff;
-    --sidebar: #e1eadd;
-    --line: #b7c4b1;
-    --field: #fff;
-    --field-ink: #18211b;
-    --dot: #a9b6a3;
-    --glow: rgba(81, 169, 20, .12);
+    --accent: #175c46;
+    --accent-hover: #104634;
+    --accent-ink: #ffffff;
+    --ink: #18332c;
+    --muted: #53665f;
+    --surface: #f4f6f1;
+    --panel: #ffffff;
+    --sidebar: #ecf1e9;
+    --line: #d3dfd4;
+    --field: #ffffff;
+    --field-ink: #18332c;
+    --gold: #c59d4c;
+    --shadow: 0 14px 38px rgba(26, 55, 39, .08);
 }
 
-body { @apply min-w-80 m-0 bg-surface text-ink; }
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --accent: #81caa5;
+    --accent-hover: #a5e1bd;
+    --accent-ink: #10271f;
+    --ink: #ecf6ef;
+    --muted: #b6cbbb;
+    --surface: #11241e;
+    --panel: #20352b;
+    --sidebar: #172e24;
+    --line: #456052;
+    --field: #f8faf8;
+    --field-ink: #18332c;
+    --gold: #d3b476;
+    --shadow: 0 14px 38px rgba(0, 0, 0, .18);
+}
+
+body { min-width: 320px; margin: 0; background: var(--surface); color: var(--ink); }
 button { cursor: pointer; }
 button:disabled { cursor: not-allowed; }
-:focus-visible { @apply outline-3 outline-offset-3 outline-accent; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }

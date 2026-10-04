@@ -38,7 +38,6 @@ function StaffPage({ role, title, description, children }) {
                     ))}
                 </nav>
                 {children}
-                <p className="module-note">Records and actions require authenticated access and backend integration.</p>
             </main>
             <Footer />
         </div>

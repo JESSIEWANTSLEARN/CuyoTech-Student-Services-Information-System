@@ -22,9 +22,9 @@ function LogInForm() {
             />
 
             <button type="submit" className="submit-button" disabled>
-                Log in (coming soon)
+                Log in
             </button>
-            <p className="form-note">Authentication will be available after backend integration.</p>
+            <p className="form-note" role="status">Sign-in is temporarily unavailable.</p>
         </form>
     );
 }

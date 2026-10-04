@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 function ThemeToggle() {
     const [theme, setTheme] = useState(() => {
         try {
-            return localStorage.getItem("cuyotech-theme") === "light" ? "light" : "dark";
+            return localStorage.getItem("cuyotech-theme") === "dark" ? "dark" : "light";
         } catch {
-            return "dark";
+            return "light";
         }
     });
 

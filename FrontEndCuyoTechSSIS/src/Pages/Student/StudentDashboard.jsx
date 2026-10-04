@@ -16,7 +16,7 @@ function StudentDashboard() {
                     <p className="eyebrow">Student portal</p>
                     <h1>Student Dashboard</h1>
                     <p>
-                        View your student services here after you log in.
+                        Access your academic records and student services in one place.
                     </p>
 
                     <div className="dashboard-grid">

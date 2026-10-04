@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import LandingPage from "./Pages/LandingPage.jsx";
+import Header from "./Components/Header.jsx";
 import NotFoundPage from "./Pages/NotFoundPage.jsx";
 
 import StudentDashboard from "./Pages/Student/StudentDashboard.jsx";
@@ -31,7 +32,7 @@ function App() {
     return (
         <Routes>
             {/* Public pages */}
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<><Header section="Student portal" /><LandingPage /></>} />
 
             {/* Student pages */}
             <Route path="/student/dashboard" element={<StudentDashboard />} />
