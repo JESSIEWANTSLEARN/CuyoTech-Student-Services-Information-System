@@ -4,28 +4,28 @@ import LogInForm from "../Components/LogInForm.jsx";
 
 function LandingPage() {
     return (
-        <div>
+        <div className="landing-shell">
             <main className="landing-page">
                 <section className="welcome-panel" aria-labelledby="welcome-title">
-                    <p className="eyebrow">CuyoTech University</p>
-                    <h1 id="welcome-title">Student services, without the long line.</h1>
+                    <p className="eyebrow">CuyoTech College of Science and Technology</p>
+                    <h1 id="welcome-title">Student services, one secure portal.</h1>
                     <p className="welcome-lead">
-                        One portal for academic records, university requests, payments,
-                        and clearance workflows.
+                        Access academic records, university requests, payments, and
+                        clearance workflows from one official student services system.
                     </p>
 
                     <div className="service-highlights" aria-label="Available student services">
                         <div>
                             <strong>Academic records</strong>
-                            <span>Subjects, grades, and profile information</span>
+                            <span>Subjects, released grades, enrollment, and profile information</span>
                         </div>
                         <div>
                             <strong>Document requests</strong>
-                            <span>TOR, COR, certifications, and request status</span>
+                            <span>TOR, COR, certifications, payment, and request tracking</span>
                         </div>
                         <div>
                             <strong>Role-based access</strong>
-                            <span>Student and authorized university staff workspaces</span>
+                            <span>Student, Registrar, Cashier, Department, and Admin workspaces</span>
                         </div>
                     </div>
 
@@ -37,10 +37,10 @@ function LandingPage() {
                 <section className="auth-panel" aria-label="Account access">
                     <LogInForm />
                     <div className="account-help">
-                        <strong>No account yet?</strong>
+                        <strong>No public sign-up</strong>
                         <span>
                             Student accounts are issued after enrollment. Contact authorized
-                            university staff if you need account assistance.
+                            school staff if you need account assistance.
                         </span>
                     </div>
                 </section>

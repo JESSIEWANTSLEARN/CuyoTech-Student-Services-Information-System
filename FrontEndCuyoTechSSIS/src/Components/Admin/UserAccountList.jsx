@@ -45,7 +45,28 @@ function UserAccountList() {
     }
 
     useEffect(() => {
-        loadUsers();
+        let active = true;
+
+        apiRequest("/admin/users")
+            .then((data) => {
+                if (active) {
+                    setUsers(data.users);
+                }
+            })
+            .catch((error) => {
+                if (active) {
+                    setMessage(error.message);
+                }
+            })
+            .finally(() => {
+                if (active) {
+                    setLoading(false);
+                }
+            });
+
+        return () => {
+            active = false;
+        };
     }, []);
 
     const filteredUsers = useMemo(() => {

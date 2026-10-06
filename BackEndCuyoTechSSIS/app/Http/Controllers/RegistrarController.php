@@ -223,6 +223,7 @@ class RegistrarController extends Controller
                 }
 
                 $documentRequest->save();
+
                 return;
             }
 
@@ -238,6 +239,7 @@ class RegistrarController extends Controller
                 ]);
 
                 $documentRequest->payment?->update(['status' => 'void']);
+
                 return;
             }
 
@@ -251,6 +253,7 @@ class RegistrarController extends Controller
                     'reviewed_by' => $request->user()->id,
                     'registrar_notes' => $remarks,
                 ]);
+
                 return;
             }
 

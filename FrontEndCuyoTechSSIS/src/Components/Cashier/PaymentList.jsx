@@ -8,7 +8,7 @@ function PaymentList() {
     const [search, setSearch] = useState("");
     const [message, setMessage] = useState("");
 
-    const payments = data?.payments || [];
+    const payments = useMemo(() => data?.payments || [], [data]);
     const filtered = useMemo(() => {
         const keyword = search.trim().toLowerCase();
 

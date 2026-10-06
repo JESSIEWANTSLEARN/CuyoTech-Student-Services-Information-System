@@ -20,7 +20,18 @@ function NotificationBell() {
     }
 
     useEffect(() => {
-        load();
+        let active = true;
+
+        apiRequest("/notifications")
+            .then((data) => {
+                if (active) {
+                    setItems(data.notifications || []);
+                    setUnread(data.unread_count || 0);
+                }
+            })
+            .catch(() => {
+                // Header notifications should not block the rest of the portal.
+            });
 
         function closeOnOutside(event) {
             if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -29,7 +40,11 @@ function NotificationBell() {
         }
 
         document.addEventListener("mousedown", closeOnOutside);
-        return () => document.removeEventListener("mousedown", closeOnOutside);
+
+        return () => {
+            active = false;
+            document.removeEventListener("mousedown", closeOnOutside);
+        };
     }, []);
 
     async function openNotification(item) {

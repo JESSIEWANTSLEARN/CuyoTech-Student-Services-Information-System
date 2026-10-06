@@ -12,7 +12,7 @@ function EnrollmentList() {
     const [selected, setSelected] = useState(null);
     const [message, setMessage] = useState("");
 
-    const students = data?.students || [];
+    const students = useMemo(() => data?.students || [], [data]);
     const courses = data?.courses || [];
     const subjects = data?.subjects || [];
 

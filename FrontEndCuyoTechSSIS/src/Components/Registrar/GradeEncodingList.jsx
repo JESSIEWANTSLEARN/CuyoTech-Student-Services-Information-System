@@ -7,7 +7,7 @@ function GradeEncodingList() {
     const [search, setSearch] = useState("");
     const [message, setMessage] = useState("");
 
-    const records = data?.grade_records || [];
+    const records = useMemo(() => data?.grade_records || [], [data]);
     const filtered = useMemo(() => {
         const keyword = search.trim().toLowerCase();
 

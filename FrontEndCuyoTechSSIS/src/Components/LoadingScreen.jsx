@@ -3,7 +3,7 @@ function LoadingScreen({ message = "Preparing your portal..." }) {
         <div className="cuyotech-loading-screen" role="status" aria-live="polite">
             <div className="loading-brand-mark" aria-hidden="true">CT</div>
             <div className="loading-brand-copy">
-                <strong>CuyoTech University</strong>
+                <strong>CuyoTech College of Science and Technology</strong>
                 <span>Student Services Information System</span>
             </div>
 

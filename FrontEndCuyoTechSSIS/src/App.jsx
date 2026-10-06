@@ -34,6 +34,7 @@ import Clearance from "./Pages/Department/Clearance.jsx";
 import DepartmentDashboard from "./Pages/Department/DepartmentDashboard.jsx";
 
 import "./App.css";
+import "./landing-campus.css";
 import "./admin.css";
 import "./workflow.css";
 import "./portal-experience.css";

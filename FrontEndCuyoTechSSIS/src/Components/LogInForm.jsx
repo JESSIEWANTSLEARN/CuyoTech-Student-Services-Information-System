@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoadingScreen from "./LoadingScreen.jsx";
 import { apiRequest } from "../services/api.js";
 import { getDashboardPath, saveAuth } from "../services/auth.js";
 
@@ -35,58 +34,66 @@ function LogInForm() {
     }
 
     return (
-        <>
-            {loading && <LoadingScreen message="Signing you in..." />}
+        <form
+            className="auth-form"
+            onSubmit={handleSubmit}
+            aria-busy={loading}
+        >
+            <div className="auth-form-heading">
+                <p className="eyebrow">Secure account access</p>
+                <h2>Welcome back</h2>
+                <p className="form-note">
+                    Sign in using the account provided by authorized CuyoTech staff.
+                </p>
+            </div>
 
-            <form className="auth-form" onSubmit={handleSubmit}>
-                <div className="auth-form-heading">
-                    <p className="eyebrow">Secure account access</p>
-                    <h2>Welcome back</h2>
-                    <p className="form-note">
-                        Sign in using the account provided by authorized CuyoTech staff.
-                    </p>
-                </div>
+            <label htmlFor="login-email">Email address</label>
+            <input
+                id="login-email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="name@cuyotech.com"
+                disabled={loading}
+                required
+            />
 
-                <label htmlFor="login-email">Email address</label>
+            <label htmlFor="login-password">Password</label>
+            <div className="password-field">
                 <input
-                    id="login-email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="name@cuyotech.com"
+                    id="login-password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="current-password"
+                    disabled={loading}
                     required
                 />
-
-                <label htmlFor="login-password">Password</label>
-                <div className="password-field">
-                    <input
-                        id="login-password"
-                        name="password"
-                        type={showPassword ? "text" : "password"}
-                        autoComplete="current-password"
-                        required
-                    />
-                    <button
-                        type="button"
-                        className="password-toggle"
-                        onClick={() => setShowPassword((current) => !current)}
-                        aria-label={showPassword ? "Hide password" : "Show password"}
-                    >
-                        {showPassword ? "Hide" : "Show"}
-                    </button>
-                </div>
-
-                <button type="submit" className="submit-button" disabled={loading}>
-                    {loading ? "Signing in..." : "Sign in"}
+                <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={() => setShowPassword((current) => !current)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    disabled={loading}
+                >
+                    {showPassword ? "Hide" : "Show"}
                 </button>
+            </div>
 
-                {message && (
-                    <p className="login-message" role="alert">
-                        {message}
-                    </p>
-                )}
-            </form>
-        </>
+            <button
+                type="submit"
+                className="submit-button login-submit-button"
+                disabled={loading}
+            >
+                {loading && <span className="login-inline-spinner" aria-hidden="true" />}
+                <span>{loading ? "Signing in..." : "Sign in"}</span>
+            </button>
+
+            {message && (
+                <p className="login-message" role="alert">
+                    {message}
+                </p>
+            )}
+        </form>
     );
 }
 

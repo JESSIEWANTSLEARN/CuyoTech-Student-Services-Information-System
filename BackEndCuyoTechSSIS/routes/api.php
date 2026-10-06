@@ -49,6 +49,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/profile', [StudentController::class, 'profile']);
         Route::get('/subjects', [StudentController::class, 'subjects']);
         Route::get('/grades', [StudentController::class, 'grades']);
+        
+        // Added missing student logic routes
+        Route::get('/clearances', [StudentController::class, 'clearances']);
+        Route::post('/payments', [StudentController::class, 'submitPayment']);
+
         Route::get('/document-types', [StudentDocumentRequestController::class, 'documentTypes']);
         Route::get('/document-requests', [StudentDocumentRequestController::class, 'index']);
         Route::post('/document-requests', [StudentDocumentRequestController::class, 'store']);
@@ -85,9 +90,14 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/content', [AdminContentController::class, 'index']);
         Route::post('/announcements', [AdminContentController::class, 'storeAnnouncement']);
         Route::delete('/announcements/{announcement}', [AdminContentController::class, 'destroyAnnouncement']);
-        Route::post('/important-dates', [AdminContentController::class, 'storeDate']);
+        Route::post('/important-dates', [AdminContentController::class,'storeDate']);
         Route::delete('/important-dates/{importantDate}', [AdminContentController::class, 'destroyDate']);
 
+        // Added missing project team CRUD routes
+        Route::post('/project-team', [AdminProjectTeamController::class, 'store']);
+        Route::put('/project-team/{projectTeamMember}', [AdminProjectTeamController::class, 'update']);
+        Route::delete('/project-team/{projectTeamMember}', [AdminProjectTeamController::class, 'destroy']);
+        
         Route::post('/project-team/{projectTeamMember}/photo', [AdminProjectTeamController::class, 'updatePhoto']);
         Route::delete('/project-team/{projectTeamMember}/photo', [AdminProjectTeamController::class, 'removePhoto']);
     });

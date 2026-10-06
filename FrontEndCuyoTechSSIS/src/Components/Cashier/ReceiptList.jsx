@@ -4,7 +4,7 @@ import { useApiData } from "../../hooks/useApiData.js";
 function ReceiptList() {
     const { data, loading, error } = useApiData("/cashier/receipts", { receipts: [] });
     const [search, setSearch] = useState("");
-    const receipts = data?.receipts || [];
+    const receipts = useMemo(() => data?.receipts || [], [data]);
 
     const filtered = useMemo(() => {
         const keyword = search.trim().toLowerCase();

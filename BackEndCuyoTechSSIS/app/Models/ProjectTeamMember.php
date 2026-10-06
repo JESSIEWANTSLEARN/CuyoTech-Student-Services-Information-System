@@ -12,11 +12,8 @@ class ProjectTeamMember extends Model
         'scrum_role',
         'deliverables',
         'support_roles',
-        'photo_mime',
         'photo_data',
     ];
 
-    protected $hidden = [
-        'photo_data',
-    ];
+    // Removed the $hidden array entirely so 'photo_data' is sent to React
 }

@@ -19,13 +19,7 @@ export async function apiRequest(path, options = {}) {
         headers,
     });
 
-    let data = {};
-
-    try {
-        data = await response.json();
-    } catch {
-        data = {};
-    }
+    const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
         throw new Error(data.message || "Request failed. Please try again.");

@@ -8,7 +8,7 @@ function ClearanceList() {
     const [search, setSearch] = useState("");
     const [message, setMessage] = useState("");
 
-    const clearances = data?.clearances || [];
+    const clearances = useMemo(() => data?.clearances || [], [data]);
     const filtered = useMemo(() => {
         const keyword = search.trim().toLowerCase();
 

@@ -1,0 +1,286 @@
+/* CuyoTech campus login experience
+   The background image contains only the campus building and school signage.
+   All login/system copy remains real HTML for accessibility and responsiveness. */
+
+.landing-header {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, rgba(7, 28, 23, 0.78), rgba(7, 28, 23, 0.28) 72%, transparent);
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+}
+
+.landing-header .brand-link,
+.landing-header .brand-link strong,
+.landing-header .brand-link span,
+.landing-header .header-project-link,
+.landing-header .header-section {
+    color: #fff;
+}
+
+.landing-header .brand-link span {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.landing-header .brand-link::before {
+    border-color: rgba(236, 202, 99, 0.95);
+    background: rgba(12, 60, 46, 0.52);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.landing-header .header-project-link,
+.landing-header .header-section,
+.landing-header .theme-toggle {
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(8, 39, 31, 0.34);
+}
+
+.landing-shell {
+    min-height: 100vh;
+    background: #0a2f26;
+}
+
+.landing-page {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(128px, 15vh, 168px) clamp(24px, 6vw, 92px) clamp(62px, 8vh, 96px);
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 430px);
+    align-items: center;
+    gap: clamp(38px, 6vw, 86px);
+    overflow: hidden;
+}
+
+.landing-page::before,
+.landing-page::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+}
+
+.landing-page::before {
+    z-index: -2;
+    background-image: url('/cuyotech-campus-login.webp');
+    background-position: center 45%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.012);
+}
+
+.landing-page::after {
+    z-index: -1;
+    background:
+        linear-gradient(90deg, rgba(4, 27, 22, 0.91) 0%, rgba(4, 27, 22, 0.78) 34%, rgba(4, 27, 22, 0.37) 61%, rgba(4, 27, 22, 0.2) 100%),
+        linear-gradient(180deg, rgba(3, 20, 17, 0.18), rgba(3, 20, 17, 0.42));
+}
+
+.landing-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+.landing-page .welcome-panel {
+    max-width: 690px;
+    padding: 28px 0;
+}
+
+.landing-page .welcome-panel .eyebrow {
+    color: #f2d67d;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.24);
+}
+
+.landing-page .welcome-panel h1 {
+    max-width: 690px;
+    color: #fff;
+    font-size: clamp(43px, 5.4vw, 72px);
+    text-shadow: 0 8px 36px rgba(0, 0, 0, 0.36);
+}
+
+.landing-page .welcome-lead {
+    max-width: 610px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.landing-page .service-highlights > div {
+    border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.landing-page .service-highlights strong {
+    color: #fff;
+}
+
+.landing-page .service-highlights span {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.landing-page .project-info-entry-link {
+    display: inline-flex;
+    margin-top: 26px;
+    color: #f2d67d;
+    font-weight: 800;
+    text-underline-offset: 4px;
+}
+
+.landing-page .auth-panel {
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    border-top: 4px solid #d5b44c;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(18px) saturate(120%);
+}
+
+.landing-page .auth-panel .eyebrow {
+    color: #176147;
+}
+
+.landing-page .auth-panel h2,
+.landing-page .auth-panel label,
+.landing-page .account-help strong {
+    color: #12261f;
+}
+
+.landing-page .auth-panel .form-note,
+.landing-page .account-help {
+    color: #52645e;
+}
+
+.landing-page .auth-panel input {
+    border-color: #cfd9d4;
+    background: rgba(255, 255, 255, 0.96);
+    color: #12261f;
+}
+
+.landing-page .auth-panel input:focus {
+    outline: 3px solid rgba(23, 97, 71, 0.16);
+    border-color: #176147;
+}
+
+.landing-page .auth-panel .submit-button {
+    background: #155c45;
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(21, 92, 69, 0.22);
+}
+
+.landing-page .auth-panel .submit-button:hover:not(:disabled) {
+    background: #104c39;
+}
+
+.landing-shell > .site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: #082b22;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 980px) {
+    .landing-page {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-top: 138px;
+        background: #0a2f26;
+    }
+
+    .landing-page::before {
+        background-position: 54% center;
+    }
+
+    .landing-page::after {
+        background: linear-gradient(180deg, rgba(4, 27, 22, 0.84) 0%, rgba(4, 27, 22, 0.64) 56%, rgba(4, 27, 22, 0.78) 100%);
+    }
+
+    .landing-page .auth-panel {
+        max-width: 580px;
+    }
+}
+
+@media (max-width: 760px) {
+    .landing-header {
+        position: absolute;
+        padding-top: 10px;
+        background: linear-gradient(180deg, rgba(6, 31, 25, 0.92), rgba(6, 31, 25, 0.58));
+    }
+
+    .landing-header .header-section {
+        display: none;
+    }
+
+    .landing-header .header-project-link {
+        font-size: 12px;
+    }
+
+    .landing-page {
+        padding: 176px 20px 48px;
+    }
+
+    .landing-page .welcome-panel {
+        padding-top: 0;
+    }
+
+    .landing-page .welcome-panel h1 {
+        font-size: clamp(38px, 12vw, 54px);
+    }
+
+    .landing-page .auth-panel {
+        padding: 24px 20px;
+        border-radius: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landing-page::before {
+        transform: none;
+    }
+}
+
+/* Public login UX refinement */
+.landing-page .auth-form[aria-busy="true"] input,
+.landing-page .auth-form[aria-busy="true"] .password-toggle {
+    cursor: wait;
+}
+
+.landing-page .auth-form input:disabled {
+    opacity: 0.76;
+    background: rgba(244, 247, 245, 0.98);
+}
+
+.landing-page .auth-form .password-toggle:disabled {
+    opacity: 0.6;
+}
+
+.landing-page .login-submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.landing-page .login-inline-spinner {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    border: 2px solid rgba(255, 255, 255, 0.42);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: login-inline-spin 0.75s linear infinite;
+}
+
+@keyframes login-inline-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landing-page .login-inline-spinner {
+        animation: none;
+        border-color: rgba(255, 255, 255, 0.76);
+    }
+}

@@ -33,7 +33,7 @@ return new class extends Migration
             $table->unique(
                 ['student_id', 'department_id', 'academic_year', 'semester'],
                 'clearance_student_dept_ay_sem_unique'
-            ); 
+            );
         }); // FIX: Added the closing }); for Schema::create
     }
 

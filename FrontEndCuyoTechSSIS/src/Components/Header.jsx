@@ -19,7 +19,7 @@ function Header({ section = "Student Services" }) {
     const isLandingPage = pathname === "/";
 
     return (
-        <header className="site-header">
+        <header className={`site-header${isLandingPage ? " landing-header" : ""}`}>
             <div className="header-brand-area">
                 <Nav />
                 {!isLandingPage && (
@@ -43,7 +43,7 @@ function Header({ section = "Student Services" }) {
                         <LogoutButton />
                     </>
                 )}
-                <ThemeToggle />
+                {!isLandingPage && <ThemeToggle />}
             </div>
         </header>
     );

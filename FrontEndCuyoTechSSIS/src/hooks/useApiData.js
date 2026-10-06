@@ -21,8 +21,30 @@ export function useApiData(path, initialValue = null) {
     }, [path]);
 
     useEffect(() => {
-        load();
-    }, [load]);
+        let active = true;
+
+        apiRequest(path)
+            .then((response) => {
+                if (active) {
+                    setData(response);
+                    setError("");
+                }
+            })
+            .catch((requestError) => {
+                if (active) {
+                    setError(requestError.message);
+                }
+            })
+            .finally(() => {
+                if (active) {
+                    setLoading(false);
+                }
+            });
+
+        return () => {
+            active = false;
+        };
+    }, [path]);
 
     return { data, loading, error, reload: load };
 }

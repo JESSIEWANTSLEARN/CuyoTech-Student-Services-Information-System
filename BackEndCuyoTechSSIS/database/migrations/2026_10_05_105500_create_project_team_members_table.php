@@ -8,19 +8,20 @@ return new class extends Migration
 {
     public function up(): void
     {
+        Schema::dropIfExists('project_team_members');
+
         Schema::create('project_team_members', function (Blueprint $table) {
             $table->id();
-            $table->unsignedTinyInteger('display_order')->default(1);
-            $table->string('name', 120);
-            $table->string('scrum_role', 160);
-            $table->text('deliverables');
+            $table->integer('display_order')->default(0);
+            $table->string('name', 150);
+            $table->string('scrum_role', 100)->nullable();
+            $table->text('deliverables')->nullable();
             $table->text('support_roles')->nullable();
-            $table->string('photo_mime', 50)->nullable();
-            $table->longText('photo_data')->nullable();
-            $table->timestamps();
 
-            $table->unique('name');
-            $table->index('display_order');
+            // This holds the base64 image data for React
+            $table->longText('photo_data')->nullable();
+
+            $table->timestamps();
         });
     }
 

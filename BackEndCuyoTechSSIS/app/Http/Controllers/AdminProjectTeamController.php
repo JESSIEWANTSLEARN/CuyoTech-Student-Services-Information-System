@@ -29,7 +29,6 @@ class AdminProjectTeamController extends Controller
             ], 422);
         }
 
-        $mime = $matches[1];
         $base64 = preg_replace('/\s+/', '', $matches[2]);
         $binary = base64_decode($base64, true);
 
@@ -46,9 +45,10 @@ class AdminProjectTeamController extends Controller
             ], 422);
         }
 
+        // FIX: Store the entire Data URL so React can use it directly,
+        // and remove the non-existent 'photo_mime' column.
         $projectTeamMember->update([
-            'photo_mime' => $mime,
-            'photo_data' => base64_encode($binary),
+            'photo_data' => $dataUrl,
         ]);
 
         AuditLog::create([
@@ -68,8 +68,8 @@ class AdminProjectTeamController extends Controller
         Request $request,
         ProjectTeamMember $projectTeamMember
     ): JsonResponse {
+        // FIX: Removed 'photo_mime' here as well
         $projectTeamMember->update([
-            'photo_mime' => null,
             'photo_data' => null,
         ]);
 

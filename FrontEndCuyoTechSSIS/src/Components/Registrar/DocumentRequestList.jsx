@@ -8,7 +8,7 @@ function DocumentRequestList() {
     const [search, setSearch] = useState("");
     const [message, setMessage] = useState("");
 
-    const requests = data?.requests || [];
+    const requests = useMemo(() => data?.requests || [], [data]);
     const filtered = useMemo(() => {
         const keyword = search.trim().toLowerCase();
 

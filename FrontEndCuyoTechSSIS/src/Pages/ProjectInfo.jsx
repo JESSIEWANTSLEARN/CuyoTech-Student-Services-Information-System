@@ -83,7 +83,7 @@ function ProjectInfo() {
     const [category, setCategory] = useState("All");
     const [openIndex, setOpenIndex] = useState(0);
     const [message, setMessage] = useState("");
-    const [refreshKey, setRefreshKey] = useState(Date.now());
+    const [refreshKey, setRefreshKey] = useState(0);
     const user = getAuthUser();
     const isAdmin = user?.role === "admin";
 
@@ -98,7 +98,24 @@ function ProjectInfo() {
     }
 
     useEffect(() => {
-        loadTeam();
+        let active = true;
+
+        apiRequest("/project-info")
+            .then((data) => {
+                if (active) {
+                    setTeam(data.members || []);
+                    setGroupName(data.group_name || "SixGrams");
+                }
+            })
+            .catch((error) => {
+                if (active) {
+                    setMessage(error.message);
+                }
+            });
+
+        return () => {
+            active = false;
+        };
     }, []);
 
     const categories = useMemo(
@@ -143,7 +160,7 @@ function ProjectInfo() {
                 });
 
                 setMessage(response.message);
-                setRefreshKey(Date.now());
+                setRefreshKey((current) => current + 1);
                 await loadTeam();
             } catch (error) {
                 setMessage(error.message);
@@ -164,7 +181,7 @@ function ProjectInfo() {
             });
 
             setMessage(response.message);
-            setRefreshKey(Date.now());
+            setRefreshKey((current) => current + 1);
             await loadTeam();
         } catch (error) {
             setMessage(error.message);
@@ -177,7 +194,7 @@ function ProjectInfo() {
                 <Link className="project-brand" to="/">
                     <span>CT</span>
                     <div>
-                        <strong>CuyoTech University</strong>
+                        <strong>CuyoTech College of Science and Technology</strong>
                         <small>Student Services Information System</small>
                     </div>
                 </Link>
