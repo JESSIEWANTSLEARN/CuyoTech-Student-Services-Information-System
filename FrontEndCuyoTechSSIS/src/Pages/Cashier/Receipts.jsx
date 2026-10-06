@@ -1,9 +1,9 @@
-import StaffPage from "../../Components/StaffPage.jsx";
 import ReceiptList from "../../Components/Cashier/ReceiptList.jsx";
+import StaffPage from "../../Components/StaffPage.jsx";
 
 function Receipts() {
     return (
-        <StaffPage role="cashier" title="Receipts" description="Review receipts for verified payments.">
+        <StaffPage role="cashier" title="Receipts" description="Review official receipts generated from verified payments.">
             <ReceiptList />
         </StaffPage>
     );

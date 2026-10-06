@@ -1,9 +1,13 @@
-import StaffPage from "../../Components/StaffPage.jsx";
 import UserAccountList from "../../Components/Admin/UserAccountList.jsx";
+import StaffPage from "../../Components/StaffPage.jsx";
 
 function UserAccounts() {
     return (
-        <StaffPage role="admin" title="User accounts" description="Review accounts and their assigned roles.">
+        <StaffPage
+            role="admin"
+            title="User accounts"
+            description="Create and manage student and authorized staff accounts."
+        >
             <UserAccountList />
         </StaffPage>
     );

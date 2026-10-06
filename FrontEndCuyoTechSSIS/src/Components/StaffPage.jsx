@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
-import Header from "./Header.jsx";
+import { NavLink } from "react-router-dom";
+import { AcademicTermCard } from "./PortalContext.jsx";
 import Footer from "./Footer.jsx";
+import Header from "./Header.jsx";
 
 const sections = {
     admin: [
         { label: "Dashboard", path: "/admin/dashboard" },
         { label: "User accounts", path: "/admin/users" },
+        { label: "Notices & dates", path: "/admin/content" },
+        { label: "System portals", path: "/admin/system-portals" },
+        { label: "Audit logs", path: "/admin/audit-logs" },
     ],
     registrar: [
         { label: "Dashboard", path: "/registrar/dashboard" },
@@ -24,20 +28,41 @@ const sections = {
     ],
 };
 
+const roleNames = {
+    admin: "Administration",
+    registrar: "Registrar",
+    cashier: "Cashier",
+    department: "Department",
+};
+
 function StaffPage({ role, title, description, children }) {
     return (
         <div>
             <Header section={title} />
             <main className="dashboard-content module-dashboard">
-                <p className="eyebrow">{role} module</p>
-                <h1>{title}</h1>
-                <p>{description}</p>
                 <nav className="module-nav" aria-label={`${role} pages`}>
+                    <div className="sidebar-heading">
+                        <span>{roleNames[role] || role}</span>
+                        <small>University services</small>
+                    </div>
+
+                    <AcademicTermCard compact />
+
                     {sections[role].map(({ label, path }) => (
-                        <Link key={path} to={path}>{label}</Link>
+                        <NavLink key={path} to={path} end={path.endsWith("/dashboard")}>
+                            {label}
+                        </NavLink>
                     ))}
                 </nav>
-                {children}
+
+                <div className="module-main">
+                    <div className="page-heading">
+                        <p className="eyebrow">{roleNames[role] || role}</p>
+                        <h1>{title}</h1>
+                        <p>{description}</p>
+                    </div>
+                    {children}
+                </div>
             </main>
             <Footer />
         </div>

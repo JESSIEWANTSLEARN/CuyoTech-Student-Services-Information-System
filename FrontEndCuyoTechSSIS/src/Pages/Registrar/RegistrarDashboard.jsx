@@ -5,11 +5,11 @@ function RegistrarDashboard() {
         <ModuleDashboard
             role="registrar"
             title="Registrar Dashboard"
-            description="Review enrollment and academic records."
+            description="Manage enrollment, grades, and document-request processing."
             areas={[
-                { title: "Enrollment", path: "/registrar/enrollment", description: "Enrollment records will appear after the Registrar API is connected." },
-                { title: "Grades", path: "/registrar/grades", description: "Grade encoding and release will be available after integration." },
-                { title: "Document requests", path: "/registrar/document-requests", description: "Requests requiring Registrar processing will appear here." },
+                { title: "Enrollment", path: "/registrar/enrollment", description: "Assign course, term, year level, and subjects to student accounts." },
+                { title: "Grade encoding", path: "/registrar/grades", description: "Encode grades and choose when students can view them." },
+                { title: "Document requests", path: "/registrar/document-requests", description: "Approve requests, monitor payment, and mark documents ready for release." },
             ]}
         />
     );

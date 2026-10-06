@@ -1,6 +1,6 @@
+import Footer from "../Footer.jsx";
 import Header from "../Header.jsx";
 import SideBar from "../SideBar.jsx";
-import Footer from "../Footer.jsx";
 
 function StudentPage({ title, description, children }) {
     return (
@@ -9,9 +9,11 @@ function StudentPage({ title, description, children }) {
             <div className="dashboard-layout">
                 <SideBar />
                 <main className="dashboard-content">
-                    <p className="eyebrow">Student portal</p>
-                    <h1>{title}</h1>
-                    <p>{description}</p>
+                    <div className="page-heading">
+                        <p className="eyebrow">Student services</p>
+                        <h1>{title}</h1>
+                        <p>{description}</p>
+                    </div>
                     {children}
                 </main>
             </div>

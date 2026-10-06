@@ -5,9 +5,9 @@ function DepartmentDashboard() {
         <ModuleDashboard
             role="department"
             title="Department Dashboard"
-            description="Review student clearance requests."
+            description="Process student department clearance records."
             areas={[
-                { title: "Clearance", path: "/department/clearance", description: "Clearance records and decisions will appear after the Department API is connected." },
+                { title: "Clearance", path: "/department/clearance", description: "Mark enrolled students as pending, cleared, or on hold." },
             ]}
         />
     );

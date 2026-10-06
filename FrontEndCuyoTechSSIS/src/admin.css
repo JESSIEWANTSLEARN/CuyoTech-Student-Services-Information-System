@@ -1,0 +1,250 @@
+.admin-account-area {
+    display: grid;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.admin-card {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel);
+    box-shadow: 0 5px 22px rgba(26, 55, 39, 0.04);
+}
+
+.admin-card h2 {
+    margin: 0 0 7px;
+}
+
+.admin-card p {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.metric-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel);
+}
+
+.metric-strip > div {
+    display: grid;
+    gap: 4px;
+    padding: 18px 20px;
+    border-right: 1px solid var(--line);
+}
+
+.metric-strip > div:last-child {
+    border-right: 0;
+}
+
+.metric-strip strong {
+    font-size: 25px;
+    line-height: 1;
+}
+
+.metric-strip span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.admin-account-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.admin-account-form label,
+.record-toolbar label {
+    display: grid;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-account-form input,
+.admin-account-form select,
+.admin-table select,
+.record-toolbar input,
+.record-toolbar select {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 9px 11px;
+    background: var(--field);
+    color: var(--field-ink);
+}
+
+.temporary-password-box {
+    display: grid;
+    gap: 5px;
+    margin-top: 18px;
+    padding: 15px;
+    border: 1px dashed var(--accent);
+    border-radius: 10px;
+    background: var(--sidebar);
+}
+
+.temporary-password-box code {
+    font-size: 17px;
+    font-weight: 850;
+    word-break: break-word;
+}
+
+.temporary-password-box small {
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.admin-message {
+    margin-top: 14px;
+    font-weight: 700;
+}
+
+.admin-section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.admin-section-heading button,
+.admin-row-actions button {
+    min-height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 7px 10px;
+    background: var(--panel);
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.admin-section-heading button:hover,
+.admin-row-actions button:hover {
+    border-color: var(--accent);
+}
+
+.admin-row-actions .primary-small {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+.record-toolbar {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) 180px 180px;
+    gap: 12px;
+    margin: 18px 0 8px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--sidebar);
+}
+
+.record-toolbar.one-column {
+    grid-template-columns: minmax(240px, 620px);
+}
+
+.search-control {
+    min-width: 0;
+}
+
+.results-count {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.admin-table-wrap {
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.admin-table th {
+    background: var(--sidebar);
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.table-subtext {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.admin-row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 200px;
+}
+
+.session-count,
+.activity-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 27px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: var(--sidebar);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+@media (max-width: 860px) {
+    .metric-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric-strip > div:nth-child(2) {
+        border-right: 0;
+    }
+
+    .metric-strip > div:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .record-toolbar {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .admin-account-form {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-section-heading {
+        flex-direction: column;
+    }
+
+    .metric-strip {
+        grid-template-columns: 1fr 1fr;
+    }
+}

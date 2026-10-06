@@ -1,0 +1,333 @@
+.workflow-stack {
+    display: grid;
+    gap: 22px;
+}
+
+.workflow-message {
+    margin: 14px 0 0;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--sidebar);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.workflow-message.error {
+    border-color: var(--danger);
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+.detail-card,
+.request-status-card {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel);
+    box-shadow: 0 5px 22px rgba(26, 55, 39, 0.04);
+}
+
+.detail-grid,
+.request-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.detail-grid > div,
+.request-details-grid > div {
+    display: grid;
+    gap: 4px;
+}
+
+.detail-grid span,
+.request-details-grid span {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.detail-grid strong,
+.request-details-grid strong {
+    line-height: 1.45;
+}
+
+.card-primary {
+    color: var(--ink) !important;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.mini-list {
+    display: grid;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.mini-list > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding-top: 9px;
+    border-top: 1px solid var(--line);
+}
+
+.mini-list span {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: right;
+}
+
+.grade-value {
+    color: var(--accent);
+    font-size: 17px;
+}
+
+.record-panel-heading,
+.page-action-row,
+.request-status-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.record-panel-heading h2,
+.request-status-header h2 {
+    margin: 0 0 5px;
+}
+
+.record-panel-heading p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.record-count,
+.request-id,
+.table-note {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.page-action-row {
+    align-items: center;
+    margin: 0 0 16px;
+}
+
+.page-action-row button,
+.record-panel-heading button,
+.row-actions button,
+.table-action {
+    min-height: 35px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--ink);
+    font-weight: 750;
+}
+
+.table-action {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+.request-fee-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--sidebar);
+}
+
+.request-list {
+    display: grid;
+    gap: 14px;
+}
+
+.request-status-card {
+    display: grid;
+    gap: 18px;
+}
+
+.request-note {
+    margin: 0;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--sidebar);
+    color: var(--muted);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 27px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: var(--sidebar);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.status-active,
+.status-paid,
+.status-cleared,
+.status-ready,
+.status-released,
+.status-completed {
+    background: #dff4e8;
+    color: #175b3c;
+}
+
+.status-pending,
+.status-payment_pending,
+.status-processing,
+.status-enrolled {
+    background: #fff4cf;
+    color: #7a5a00;
+}
+
+.status-rejected,
+.status-void,
+.status-suspended,
+.status-hold,
+.status-cancelled {
+    background: #fde7e3;
+    color: #9b3026;
+}
+
+:root[data-theme="dark"] .status-active,
+:root[data-theme="dark"] .status-paid,
+:root[data-theme="dark"] .status-cleared,
+:root[data-theme="dark"] .status-ready,
+:root[data-theme="dark"] .status-released,
+:root[data-theme="dark"] .status-completed {
+    background: #1e4b37;
+    color: #bcead1;
+}
+
+:root[data-theme="dark"] .status-pending,
+:root[data-theme="dark"] .status-payment_pending,
+:root[data-theme="dark"] .status-processing,
+:root[data-theme="dark"] .status-enrolled {
+    background: #4d411c;
+    color: #f6df93;
+}
+
+:root[data-theme="dark"] .status-rejected,
+:root[data-theme="dark"] .status-void,
+:root[data-theme="dark"] .status-suspended,
+:root[data-theme="dark"] .status-hold,
+:root[data-theme="dark"] .status-cancelled {
+    background: #4f2722;
+    color: #ffb3aa;
+}
+
+.workflow-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.workflow-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.workflow-form input,
+.workflow-form select,
+.table-input {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--field);
+    color: var(--field-ink);
+}
+
+.table-input.short {
+    width: 95px;
+}
+
+.subject-picker {
+    display: grid;
+    grid-column: 1 / -1;
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.subject-picker legend {
+    padding: 0 6px;
+    font-weight: 800;
+}
+
+.subject-picker label,
+.inline-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subject-picker input,
+.inline-check input {
+    width: auto;
+    min-height: auto;
+}
+
+.enrollment-editor {
+    margin-top: 0;
+}
+
+.row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.row-actions.stacked {
+    min-width: 190px;
+    flex-direction: column;
+}
+
+.table-subtext {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.record-panel .record-toolbar {
+    margin-top: 16px;
+}
+
+@media (max-width: 760px) {
+    .detail-grid,
+    .request-details-grid,
+    .workflow-form {
+        grid-template-columns: 1fr;
+    }
+
+    .record-panel-heading,
+    .request-status-header {
+        flex-direction: column;
+    }
+
+    .subject-picker {
+        grid-column: 1;
+    }
+}

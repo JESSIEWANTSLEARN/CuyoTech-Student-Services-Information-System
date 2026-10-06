@@ -5,10 +5,10 @@ function CashierDashboard() {
         <ModuleDashboard
             role="cashier"
             title="Cashier Dashboard"
-            description="Review payment and receipt workflows."
+            description="Verify document-request payments and review issued receipts."
             areas={[
-                { title: "Payments", path: "/cashier/payments", description: "Verified payment records will appear after the Cashier API is connected." },
-                { title: "Receipts", path: "/cashier/receipts", description: "Receipt processing will be available after integration." },
+                { title: "Payments", path: "/cashier/payments", description: "Verify pending payments and automatically issue a receipt." },
+                { title: "Receipts", path: "/cashier/receipts", description: "Review receipts generated from verified payments." },
             ]}
         />
     );

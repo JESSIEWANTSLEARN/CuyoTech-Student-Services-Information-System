@@ -6,36 +6,78 @@
     --accent: #175c46;
     --accent-hover: #104634;
     --accent-ink: #ffffff;
-    --ink: #18332c;
-    --muted: #53665f;
-    --surface: #f4f6f1;
+    --ink: #17332b;
+    --muted: #5c6e67;
+    --surface: #f5f7f3;
     --panel: #ffffff;
-    --sidebar: #ecf1e9;
-    --line: #d3dfd4;
+    --sidebar: #eef3ed;
+    --line: #d6e0d7;
     --field: #ffffff;
-    --field-ink: #18332c;
-    --gold: #c59d4c;
-    --shadow: 0 14px 38px rgba(26, 55, 39, .08);
+    --field-ink: #17332b;
+    --gold: #cda348;
+    --danger: #a4362b;
+    --danger-soft: #fff1ef;
+    --shadow: 0 18px 50px rgba(26, 55, 39, 0.09);
 }
 
 :root[data-theme="dark"] {
     color-scheme: dark;
-    --accent: #81caa5;
-    --accent-hover: #a5e1bd;
+    --accent: #8bd0ad;
+    --accent-hover: #a8dfc0;
     --accent-ink: #10271f;
-    --ink: #ecf6ef;
-    --muted: #b6cbbb;
-    --surface: #11241e;
-    --panel: #20352b;
-    --sidebar: #172e24;
-    --line: #456052;
+    --ink: #edf6f0;
+    --muted: #b6c8bd;
+    --surface: #10221c;
+    --panel: #1d3329;
+    --sidebar: #172b23;
+    --line: #425b4e;
     --field: #f8faf8;
-    --field-ink: #18332c;
-    --gold: #d3b476;
-    --shadow: 0 14px 38px rgba(0, 0, 0, .18);
+    --field-ink: #17332b;
+    --gold: #d8b86f;
+    --danger: #ffaaa2;
+    --danger-soft: #45231f;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
 }
 
-body { min-width: 320px; margin: 0; background: var(--surface); color: var(--ink); }
-button { cursor: pointer; }
-button:disabled { cursor: not-allowed; }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
