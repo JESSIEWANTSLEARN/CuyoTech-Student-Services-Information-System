@@ -9,6 +9,34 @@ use Illuminate\Http\Request;
 
 class AdminProjectTeamController extends Controller
 {
+    public function update(
+        Request $request,
+        ProjectTeamMember $projectTeamMember
+    ): JsonResponse {
+        $validated = $request->validate([
+            'display_order' => ['required', 'integer', 'min:1', 'max:99'],
+            'name' => ['required', 'string', 'max:150'],
+            'scrum_role' => ['nullable', 'string', 'max:100'],
+            'deliverables' => ['nullable', 'string', 'max:4000'],
+            'support_roles' => ['nullable', 'string', 'max:2000'],
+        ]);
+
+        $projectTeamMember->update($validated);
+
+        AuditLog::create([
+            'actor_user_id' => $request->user()->id,
+            'target_user_id' => $request->user()->id,
+            'action' => 'project_team_member_updated',
+            'details' => "Updated project team details for {$projectTeamMember->name}.",
+            'ip_address' => $request->ip(),
+        ]);
+
+        return response()->json([
+            'message' => "Updated {$projectTeamMember->name}.",
+            'member' => $projectTeamMember->fresh(),
+        ]);
+    }
+
     public function updatePhoto(
         Request $request,
         ProjectTeamMember $projectTeamMember
@@ -38,15 +66,12 @@ class AdminProjectTeamController extends Controller
             ], 422);
         }
 
-        // Keep database-backed images small enough for a school prototype.
         if (strlen($binary) > 1_500_000) {
             return response()->json([
                 'message' => 'Image must be 1.5 MB or smaller.',
             ], 422);
         }
 
-        // FIX: Store the entire Data URL so React can use it directly,
-        // and remove the non-existent 'photo_mime' column.
         $projectTeamMember->update([
             'photo_data' => $dataUrl,
         ]);
@@ -68,7 +93,6 @@ class AdminProjectTeamController extends Controller
         Request $request,
         ProjectTeamMember $projectTeamMember
     ): JsonResponse {
-        // FIX: Removed 'photo_mime' here as well
         $projectTeamMember->update([
             'photo_data' => null,
         ]);

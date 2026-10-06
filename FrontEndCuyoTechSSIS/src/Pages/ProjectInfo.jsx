@@ -84,6 +84,15 @@ function ProjectInfo() {
     const [openIndex, setOpenIndex] = useState(0);
     const [message, setMessage] = useState("");
     const [refreshKey, setRefreshKey] = useState(0);
+    const [editingMemberId, setEditingMemberId] = useState(null);
+    const [editForm, setEditForm] = useState({
+        display_order: 1,
+        name: "",
+        scrum_role: "",
+        deliverables: "",
+        support_roles: "",
+    });
+    const [savingMember, setSavingMember] = useState(false);
     const user = getAuthUser();
     const isAdmin = user?.role === "admin";
 
@@ -185,6 +194,49 @@ function ProjectInfo() {
             await loadTeam();
         } catch (error) {
             setMessage(error.message);
+        }
+    }
+
+    function startEditingMember(member) {
+        setEditingMemberId(member.id);
+        setEditForm({
+            display_order: member.display_order || 1,
+            name: member.name || "",
+            scrum_role: member.scrum_role || "",
+            deliverables: member.deliverables || "",
+            support_roles: member.support_roles || "",
+        });
+        setMessage("");
+    }
+
+    function cancelEditingMember() {
+        setEditingMemberId(null);
+        setSavingMember(false);
+    }
+
+    async function saveMemberText(member) {
+        setSavingMember(true);
+        setMessage("");
+
+        try {
+            const response = await apiRequest(`/admin/project-team/${member.id}`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    display_order: Number(editForm.display_order),
+                    name: editForm.name.trim(),
+                    scrum_role: editForm.scrum_role.trim() || null,
+                    deliverables: editForm.deliverables.trim() || null,
+                    support_roles: editForm.support_roles.trim() || null,
+                }),
+            });
+
+            setMessage(response.message);
+            setEditingMemberId(null);
+            await loadTeam();
+        } catch (error) {
+            setMessage(error.message);
+        } finally {
+            setSavingMember(false);
         }
     }
 
@@ -355,23 +407,128 @@ function ProjectInfo() {
                                         )}
                                     </div>
 
-                                    <div className="team-role-number">
-                                        Role {member.display_order}
-                                    </div>
+                                    {isAdmin && editingMemberId === member.id ? (
+                                        <div className="team-edit-form">
+                                            <label>
+                                                Role order
+                                                <input
+                                                    type="number"
+                                                    min="1"
+                                                    max="99"
+                                                    value={editForm.display_order}
+                                                    onChange={(event) =>
+                                                        setEditForm((current) => ({
+                                                            ...current,
+                                                            display_order: event.target.value,
+                                                        }))
+                                                    }
+                                                />
+                                            </label>
 
-                                    <h3>{member.name}</h3>
-                                    <strong className="team-role">{member.scrum_role}</strong>
-                                    <p>{member.deliverables}</p>
+                                            <label>
+                                                Name
+                                                <input
+                                                    type="text"
+                                                    maxLength="150"
+                                                    value={editForm.name}
+                                                    onChange={(event) =>
+                                                        setEditForm((current) => ({
+                                                            ...current,
+                                                            name: event.target.value,
+                                                        }))
+                                                    }
+                                                />
+                                            </label>
 
-                                    {member.support_roles && (
-                                        <div className="support-role-box">
-                                            <span>Secondary support</span>
-                                            <strong>{member.support_roles}</strong>
+                                            <label>
+                                                Scrum / project role
+                                                <input
+                                                    type="text"
+                                                    maxLength="100"
+                                                    value={editForm.scrum_role}
+                                                    onChange={(event) =>
+                                                        setEditForm((current) => ({
+                                                            ...current,
+                                                            scrum_role: event.target.value,
+                                                        }))
+                                                    }
+                                                />
+                                            </label>
+
+                                            <label>
+                                                Deliverables
+                                                <textarea
+                                                    rows="5"
+                                                    value={editForm.deliverables}
+                                                    onChange={(event) =>
+                                                        setEditForm((current) => ({
+                                                            ...current,
+                                                            deliverables: event.target.value,
+                                                        }))
+                                                    }
+                                                />
+                                            </label>
+
+                                            <label>
+                                                Secondary support
+                                                <textarea
+                                                    rows="3"
+                                                    value={editForm.support_roles}
+                                                    onChange={(event) =>
+                                                        setEditForm((current) => ({
+                                                            ...current,
+                                                            support_roles: event.target.value,
+                                                        }))
+                                                    }
+                                                />
+                                            </label>
+
+                                            <div className="team-edit-actions">
+                                                <button
+                                                    type="button"
+                                                    className="team-save-button"
+                                                    onClick={() => saveMemberText(member)}
+                                                    disabled={savingMember || !editForm.name.trim()}
+                                                >
+                                                    {savingMember ? "Saving..." : "Save changes"}
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={cancelEditingMember}
+                                                    disabled={savingMember}
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </div>
                                         </div>
+                                    ) : (
+                                        <>
+                                            <div className="team-role-number">
+                                                Role {member.display_order}
+                                            </div>
+
+                                            <h3>{member.name}</h3>
+                                            <strong className="team-role">{member.scrum_role}</strong>
+                                            <p>{member.deliverables}</p>
+
+                                            {member.support_roles && (
+                                                <div className="support-role-box">
+                                                    <span>Secondary support</span>
+                                                    <strong>{member.support_roles}</strong>
+                                                </div>
+                                            )}
+                                        </>
                                     )}
 
                                     {isAdmin && (
                                         <div className="team-photo-tools">
+                                            <button
+                                                type="button"
+                                                onClick={() => startEditingMember(member)}
+                                                disabled={editingMemberId === member.id}
+                                            >
+                                                Edit details
+                                            </button>
                                             <label>
                                                 {member.has_photo ? "Replace photo" : "Upload photo"}
                                                 <input
@@ -398,8 +555,9 @@ function ProjectInfo() {
 
                     {isAdmin && (
                         <p className="admin-photo-note">
-                            Admin photo tools: JPG, PNG, or WEBP; maximum 1.5 MB per member.
-                            Photos are stored in the project database for deployment persistence.
+                            Admin tools: edit member text, role order, and project photos.
+                            JPG, PNG, or WEBP photos must be 1.5 MB or smaller. Changes are stored
+                            in the project database and persist across deployments.
                         </p>
                     )}
                 </section>

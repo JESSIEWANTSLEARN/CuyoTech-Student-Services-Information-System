@@ -615,3 +615,69 @@
         transition: none;
     }
 }
+
+/* Admin team text editor */
+.team-edit-form {
+    display: grid;
+    gap: 11px;
+    margin-top: 4px;
+}
+
+.team-edit-form label {
+    display: grid;
+    gap: 5px;
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: .02em;
+}
+
+.team-edit-form input,
+.team-edit-form textarea {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--field);
+    color: var(--field-ink);
+    font: inherit;
+    font-size: 11px;
+    line-height: 1.45;
+    resize: vertical;
+}
+
+.team-edit-form input:focus,
+.team-edit-form textarea:focus {
+    outline: 2px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-color: var(--accent);
+}
+
+.team-edit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding-top: 3px;
+}
+
+.team-edit-actions button {
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--panel);
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.team-edit-actions .team-save-button {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+.team-edit-actions button:disabled,
+.team-photo-tools button:disabled {
+    cursor: not-allowed;
+    opacity: .55;
+}
